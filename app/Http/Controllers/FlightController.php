@@ -12,17 +12,19 @@ class FlightController extends Controller
      */
     public function index()
     {
-    //     $flights =Flight::whereHas('contact',function ($query){
-    //         $query->where('email','like','a%');
-    //     }
-    //     )->get();
+        // $flights =Flight::whereHas('contact',function ($query){
+        //     $query->where('email','like','a%');
+        // }
+        // )->get();
     //     // $flights =Flight::find(1);
     //             return $flights;
 
 
 
-     $flights =Flight::with('contact')->get();
-            return $flights;
+    //  $flights =Flight::select('name')->withCount('contact')->get();
+    //         return $flights;
+
+
 
 
     }
@@ -37,7 +39,13 @@ class FlightController extends Controller
     //     'city' => 'novida 1',
     //     'age'=>32
             
-
+    $flight = Flight::find(2);
+    $flight->contact()->create(
+     [
+         'email' =>"sdfsd@gmail.com",
+        
+     ]
+     );
     //     ]);
 
     //     $add->contact()->create([
